@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — Economia da Vida</title>
+<meta name="description" content="Checkout independente (PIX, cartão por provedor externo) para os cursos Economia da Vida.">
+<style>
+  :root{--bg:#0a0d14;--panel:#111826;--panel2:#0e2433;--text:#eaf2ff;--muted:#cbd5e1;--cyan:#7dd3fc;--pink:#ff4d6d;--green:#22c55e}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;background:var(--bg);color:var(--text)}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:920px;margin:0 auto;padding:0 20px}
+  .hero{padding:60px 0;text-align:center;background:linear-gradient(90deg,#111826,#1f2937)}
+  h1{margin:0 0 10px;font-size:2rem;color:var(--cyan)}
+  .sub{color:#a7b4c7}
+  .box{background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:20px;box-shadow:0 16px 36px rgba(255,77,109,.12)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  label{display:block;color:#eaf2ff;font-weight:600;margin:10px 0 6px}
+  input, select, textarea{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:#0e1522;color:#eaf2ff}
+  .muted{color:#9fb3c8;font-size:.95rem}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .paymethod{display:flex;gap:12px;flex-wrap:wrap}
+  .badge{display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);padding:4px 10px;border-radius:999px;font-size:.85rem}
+  .cta{display:flex;gap:12px;align-items:center;margin-top:16px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:14px 22px;border-radius:10px;font-weight:800;box-shadow:0 12px 30px rgba(255,77,109,.25)}
+  .btn-primary{background:linear-gradient(90deg,var(--pink),#ef476f);color:#fff}
+  .btn-secondary{background:linear-gradient(90deg,var(--cyan),#60a5fa);color:#0b0f14}
+  .hidden{display:none}
+  .pill{display:inline-block;background:#143247;color:#bfe8ff;border:1px solid rgba(125,211,252,.25);padding:6px 10px;border-radius:999px;font-size:.85rem;margin-right:6px}
+  .qr{display:flex;align-items:center;justify-content:center;background:var(--panel2);border:1px dashed rgba(125,211,252,.4);border-radius:12px;height:220px;color:#9fe0ff;text-align:center;padding:10px}
+  footer{text-align:center;color:#64748b;padding:30px 0}
+  @media (max-width:800px){.grid,.row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="container">
+    <h1>Checkout Independente</h1>
+    <p class="sub">Pague via <strong>PIX</strong> (baixo custo) ou cartão via provedor externo. Após a confirmação, você recebe acesso às aulas.</p>
+    <div style="margin-top:8px">
+      <span class="badge">Sem Hotmart</span>
+      <span class="badge">Controle do conteúdo</span>
+      <span class="badge">Confirmação rápida</span>
+    </div>
+  </div>
+</section>
+
+<main class="container" style="padding:28px 0 40px">
+  <form id="orderForm" class="box">
+    <h2 style="margin:0 0 10px">Dados do pedido</h2>
+    <p class="muted">Preencha seus dados. Se escolher <b>PIX</b>, mostraremos as instruções e você poderá anexar o comprovante.</p>
+
+    <div class="row">
+      <div>
+        <label>Nome completo</label>
+        <input required name="nome" placeholder="Seu nome">
+      </div>
+      <div>
+        <label>E‑mail</label>
+        <input required name="email" type="email" placeholder="voce@exemplo.com">
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <label>WhatsApp</label>
+        <input name="whatsapp" placeholder="(DDD) 9....">
+      </div>
+      <div>
+        <label>Cidade/UF</label>
+        <input name="cidade" placeholder="Ex.: São Paulo/SP">
+      </div>
+    </div>
+
+    <div class="row">
+      <div>
+        <label>Curso/Plano</label>
+        <select name="produto" required>
+          <option value="">Selecione...</option>
+          <option>Economia da Vida 5.0 — Executivo</option>
+          <option>Economia & Administração da Vida 5.0 — Público Geral</option>
+          <option>Combo 5.0 — Executivo + Público</option>
+          <option>In‑Company (sinal)</option>
+        </select>
+      </div>
+      <div>
+        <label>Código de afiliado / cupom (opcional)</label>
+        <input name="cupom" placeholder="Ex.: PARCEIRO10">
+      </div>
+    </div>
+
+    <label>Forma de pagamento</label>
+    <div class="paymethod">
+      <label><input type="radio" name="pagamento" value="PIX" required> PIX (recomendado)</label>
+      <label><input type="radio" name="pagamento" value="Cartão"> Cartão (via provedor externo)</label>
+      <label><input type="radio" name="pagamento" value="Transferência"> Transferência</label>
+    </div>
+
+    <!-- PIX -->
+    <div id="pixBox" class="hidden" style="margin-top:12px">
+      <span class="pill">PIX — baixo custo</span>
+      <div class="qr">
+        <div>
+          <div style="font-weight:800">Cole aqui seu QR dinâmico</div>
+          <div style="font-size:.95rem;opacity:.85;margin-top:6px">Substitua esta área por uma imagem do QR do seu PSP (Efí/Gerencianet, Asaas, Pagar.me, Mercado Pago, Stripe, etc.) ou use QR estático com sua chave PIX.</div>
+        </div>
+      </div>
+      <div class="row" style="margin-top:12px">
+        <div>
+          <label>Chave PIX (destinatário)</label>
+          <input name="pixChave" placeholder="sua-chave@dominio.com">
+        </div>
+        <div>
+          <label>Valor (R$)</label>
+          <input name="valor" type="number" step="0.01" placeholder="Ex.: 4997.00">
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label>Nome do pagador (como no comprovante)</label>
+          <input name="pagador" placeholder="Nome do pagador">
+        </div>
+        <div>
+          <label>TXID/Identificador (opcional)</label>
+          <input name="txid" placeholder="Se houver no comprovante">
+        </div>
+      </div>
+      <label>Comprovante (imagem/PDF, opcional para agilizar)</label>
+      <input name="comprovante" type="file" accept=".png,.jpg,.jpeg,.pdf">
+    </div>
+
+    <!-- CARTÃO -->
+    <div id="cardBox" class="hidden" style="margin-top:12px">
+      <span class="pill">Cartão — provedor externo</span>
+      <p class="muted">Ao clicar em “Pagar com cartão”, você será redirecionado para o provedor que escolher (ex.: Stripe, Pagar.me, Asaas, Mercado Pago). Isso evita guardar dados sensíveis no seu site.</p>
+      <a id="cardLink" class="btn btn-secondary" href="#" target="_blank" rel="noopener">Pagar com cartão</a>
+    </div>
+
+    <!-- TRANSFERÊNCIA -->
+    <div id="tedBox" class="hidden" style="margin-top:12px">
+      <span class="pill">Transferência</span>
+      <p class="muted">Banco/Agência/Conta (preencha com seus dados bancários reais no HTML).</p>
+      <div class="row">
+        <div><label>Banco</label><input name="banco" placeholder="Ex.: Banco X"></div>
+        <div><label>Agência</label><input name="agencia" placeholder="0001"></div>
+      </div>
+      <div class="row">
+        <div><label>Conta</label><input name="conta" placeholder="000000-0"></div>
+        <div><label>Favorecido</label><input name="favorecido" placeholder="Seu Nome/Razão Social"></div>
+      </div>
+    </div>
+
+    <label><input type="checkbox" required> Li e aceito os Termos, Política de Privacidade e Política Comercial.</label>
+
+    <div class="cta">
+      <button type="submit" class="btn btn-primary">Enviar pedido</button>
+      <span id="status" class="muted"></span>
+    </div>
+  </form>
+
+  <div class="box" style="margin-top:14px">
+    <strong>Dica de custos baixos:</strong> priorize <b>PIX dinâmico</b> via PSP com webhooks para confirmar automaticamente e liberar acesso. Mantenha <b>PIX estático</b> + upload de comprovante como plano B.
+  </div>
+</main>
+
+<footer>© 2025 — Economia da Vida • Suporte: <a href="mailto:ECONOMIADAVIDA@PROTON.ME">ECONOMIADAVIDA@PROTON.ME</a></footer>
+
+<script>
+// ===== CONFIGURE =====
+const SCRIPT_URL = ""; // cole aqui a URL do seu Google Apps Script (Web App) para receber o pedido
+const CARD_CHECKOUT_URL = "#"; // cole a URL do seu checkout de cartão (Stripe/Pagar.me/Asaas/etc)
+
+// UI lógica de pagamento
+const radios = document.querySelectorAll('input[name="pagamento"]');
+const pixBox = document.getElementById('pixBox');
+const cardBox = document.getElementById('cardBox');
+const tedBox  = document.getElementById('tedBox');
+const cardLink= document.getElementById('cardLink');
+
+radios.forEach(r=>r.addEventListener('change', e=>{
+  const v = e.target.value;
+  pixBox.classList.toggle('hidden', v!=="PIX");
+  cardBox.classList.toggle('hidden', v!=="Cartão");
+  tedBox.classList.toggle('hidden', v!=="Transferência");
+  if (v==="Cartão" && CARD_CHECKOUT_URL && CARD_CHECKOUT_URL!=="#") cardLink.href = CARD_CHECKOUT_URL;
+}));
+
+// Enviar pedido (via Apps Script) ou fallback para mailto
+const form = document.getElementById('orderForm');
+const statusEl = document.getElementById('status');
+
+form.addEventListener('submit', async (ev)=>{
+  ev.preventDefault();
+  statusEl.textContent = "Enviando...";
+
+  const fd = new FormData(form);
+
+  try{
+    if (SCRIPT_URL){
+      const res = await fetch(SCRIPT_URL, {method:'POST', body: fd});
+      if(!res.ok) throw new Error("Falha no servidor");
+      statusEl.textContent = "Pedido enviado. Verifique seu e‑mail em alguns minutos.";
+      form.reset();
+      pixBox.classList.add('hidden'); cardBox.classList.add('hidden'); tedBox.classList.add('hidden');
+    }else{
+      // fallback mailto
+      const obj = Object.fromEntries(fd.entries());
+      const body = encodeURIComponent(
+        "Novo pedido de curso:%0D%0A" +
+        JSON.stringify(obj, null, 2)
+      );
+      window.location.href = "mailto:ECONOMIADAVIDA@PROTON.ME?subject=Novo%20Pedido%20de%20Curso&body="+body;
+      statusEl.textContent = "Abrindo seu e‑mail...";
+    }
+  }catch(err){
+    console.error(err);
+    statusEl.textContent = "Erro ao enviar. Tente novamente.";
+  }
+});
+</script>
+</body>
+</html>

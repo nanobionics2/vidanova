@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Por que investir — Economia da Vida 5.0</title>
+<meta name="description" content="Justificativa de investimento do curso Economia da Vida 5.0 para médicos, executivos, gestores e instituições de saúde. KPIs, ROI e ganhos práticos.">
+<style>
+  :root{
+    --bg:#0a0d14;
+    --panel:#111826;
+    --panel2:#0e2433;
+    --panel3:#0e1522;
+    --text:#eaf2ff;
+    --muted:#cbd5e1;
+    --cyan:#7dd3fc;
+    --pink:#ff4d6d;
+    --green:#22c55e;
+    --yellow:#facc15;
+    --lilac:#a78bfa;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;background:var(--bg);color:var(--text)}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:1120px;margin:0 auto;padding:0 20px}
+  /* HERO */
+  .hero{
+    position:relative;text-align:center;padding:80px 0 56px;
+    background:
+      radial-gradient(1100px 520px at 50% -10%, rgba(125,211,252,.18), transparent 60%),
+      radial-gradient(900px 500px at 90% 10%, rgba(255,77,109,.18), transparent 60%),
+      linear-gradient(90deg,#111826,#1f2937);
+  }
+  .logo{font-weight:800;color:var(--cyan);text-transform:uppercase;letter-spacing:.5px;font-size:14px}
+  .hero h1{font-size:2.4rem;margin:12px auto 10px;max-width:980px}
+  .hero p.sub{font-size:1.12rem;color:#a7b4c7;max-width:980px;margin:0 auto 16px;line-height:1.55}
+  .badges{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:18px 0 26px}
+  .badge{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);color:#dbeafe;padding:8px 12px;border-radius:999px;font-weight:700;font-size:.9rem}
+  .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+  .btn{display:inline-block;padding:14px 22px;border-radius:10px;font-weight:800;box-shadow:0 12px 30px rgba(255,77,109,.25);transition:transform .15s ease}
+  .btn-primary{background:linear-gradient(90deg,var(--pink),#ef476f);color:#fff}
+  .btn-secondary{background:linear-gradient(90deg,var(--cyan),#60a5fa);color:#0b0f14}
+  .btn:hover{transform:translateY(-2px)}
+  .trust{color:#9fb3c8;font-size:.95rem;margin-top:14px}
+
+  .section{padding:48px 0}
+  .section h2{color:var(--cyan);font-size:1.8rem;margin:0 0 12px;text-align:center}
+  .lead{color:#b7c4d6;text-align:center;margin:0 auto 22px;max-width:980px}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  .box{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:16px;box-shadow:0 16px 36px rgba(255,77,109,.12)}
+  .box h3{margin:0 0 6px;color:#eaf2ff;font-size:1.05rem}
+  .box p{margin:0;color:var(--muted);line-height:1.55}
+  .check{color:var(--green);margin-right:6px}
+
+  .two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+  .panel{background:var(--panel2);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px}
+  .panel h3{margin:0 0 6px}
+  .panel ul{margin:8px 0 0;color:#d1d5db}
+
+  /* KPIs */
+  .kpi{background:var(--panel3);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:16px}
+  .kpi h4{margin:0 0 4px}
+  .kpi small{color:#9fb3c8}
+
+  /* ROI CALC */
+  .roi{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:10px}
+  .calc{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:16px}
+  label{display:block;margin:10px 0 4px;color:#eaf2ff;font-weight:600}
+  input[type="number"]{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,.08);background:#0e1522;color:#eaf2ff}
+  .result{margin-top:10px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.25);color:#d1fae5;border-radius:10px;padding:12px}
+  .muted{color:#9fb3c8}
+
+  /* PROGRAM */
+  .program{margin-top:6px}
+  .program details{
+    background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:16px;
+    box-shadow:0 16px 36px rgba(255,77,109,.12)
+  }
+  .program details+details{margin-top:12px}
+  .program summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between}
+  .program summary::-webkit-details-marker{display:none}
+  .program .title{color:var(--cyan);font-weight:800}
+  .program .plus{color:#9fb3c8;font-weight:900;font-size:1.2rem;transition:transform .2s}
+  details[open] .plus{transform:rotate(45deg)}
+  .program ul{margin:12px 0 0;padding-left:18px;color:var(--muted)}
+  .tag{display:inline-block;margin-left:8px;background:var(--cyan);color:#0a0d14;font-weight:800;border-radius:8px;padding:3px 8px;font-size:.78rem}
+  .tag.alt{background:var(--pink);color:#fff}
+  .tag.exec{background:var(--lilac);color:#0a0d14}
+
+  /* STICKY CTA */
+  .sticky{position:sticky;bottom:0;background:rgba(10,13,20,.9);backdrop-filter:blur(6px);border-top:1px solid rgba(255,255,255,.08);padding:12px 0;z-index:30}
+  .sticky .container{display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap}
+  .sticky .mini{font-weight:700;color:#9fb3c8}
+  footer{text-align:center;color:#64748b;padding:26px 0 60px}
+</style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="logo">Economia da Vida 5.0</div>
+      <h1>Por que investir agora — ganhos práticos para <span style="color:var(--cyan)">médicos, executivos e instituições</span></h1>
+      <p class="sub">Curso <strong>livre com certificação</strong> que transforma decisão em resultado. Estrutura a gestão de doenças, reduz perdas previsíveis, abre novas receitas e acelera inovação — sem burocracia acadêmica.</p>
+      <div class="badges">
+        <span class="badge">Economia Anti‑Assimétrica</span>
+        <span class="badge">Administração das Doenças</span>
+        <span class="badge">Neuroeconomia da Prosperidade</span>
+        <span class="badge">Direito Anti‑Contenda</span>
+      </div>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#justificativa">Ver justificativa de investimento</a>
+        <a class="btn btn-secondary" href="#programa">Ver conteúdo essencial</a>
+      </div>
+      <div class="trust">Projetado para quem decide: médicos, líderes clínicos, gestores hospitalares, C‑level e mantenedores.</div>
+    </div>
+  </section>
+
+  <!-- GANHOS POR PERFIL -->
+  <section class="section">
+    <div class="container">
+      <h2>O que você ganha na prática</h2>
+      <p class="lead">Resultados mensuráveis por perfil — aplicáveis em 30–90 dias, com consolidação em 3–12 meses.</p>
+      <div class="grid">
+        <div class="box">
+          <h3>Para Médicos e Times Clínicos</h3>
+          <p><span class="check">✔</span><strong>Menos perdas previsíveis</strong> (retrabalho, exames redundantes, retornos).</p>
+          <p><span class="check">✔</span><strong>Glosas/sinistros ↓</strong> com comunicação clara e consentimento (Anti‑Contenda).</p>
+          <p><span class="check">✔</span><strong>Linhas de cuidado</strong> que aumentam receita por paciente sem inflar procedimentos.</p>
+          <p><span class="check">✔</span>Entrada em <strong>consultoria</strong> (gestão de doenças e valor em saúde).</p>
+        </div>
+        <div class="box">
+          <h3>Para Executivos & Gestores</h3>
+          <p><span class="check">✔</span><strong>Opex mais magro</strong>: foco nos 20% de causas que geram 80% das perdas.</p>
+          <p><span class="check">✔</span><strong>Judicialização sob controle</strong> com governança e linguagem clara.</p>
+          <p><span class="check">✔</span><strong>KPIs clínico‑econômicos</strong> unificados para decidir sem ruído.</p>
+          <p><span class="check">✔</span><strong>Novas receitas</strong>: serviços híbridos, reabilitação, contratos por desfecho.</p>
+        </div>
+        <div class="box">
+          <h3>Para Instituições & Mantenedores</h3>
+          <p><span class="check">✔</span><strong>EBITDA ↑</strong> por redução de desperdícios e melhor mix de serviços.</p>
+          <p><span class="check">✔</span><strong>Roadmap 5.0</strong>: dados, automação, interoperabilidade e experiência.</p>
+          <p><span class="check">✔</span><strong>Captação & reputação</strong>: qualidade percebida, NPS e compliance.</p>
+          <p><span class="check">✔</span><strong>Portfólio de inovação</strong> (P&D de produtos e serviços) com governança.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KPIs -->
+  <section class="section">
+    <div class="container">
+      <h2>KPIs e metas realistas</h2>
+      <p class="lead">Faixas indicativas — variam por baseline, complexidade e execução.</p>
+      <div class="grid">
+        <div class="kpi">
+          <h4>Perdas operacionais</h4>
+          <small>desperdícios, filas, retrabalho</small>
+          <p><strong>−5% a −12%</strong></p>
+        </div>
+        <div class="kpi">
+          <h4>Glosas / recusa de contas</h4>
+          <small>comunicação + rastreabilidade</small>
+          <p><strong>−20% a −40%</strong></p>
+        </div>
+        <div class="kpi">
+          <h4>Tempo de ciclo</h4>
+          <small>triagem → alta</small>
+          <p><strong>−10% a −25%</strong></p>
+        </div>
+        <div class="kpi">
+          <h4>Ocupação útil / throughput</h4>
+          <small>agenda/leito/CC</small>
+          <p><strong>+8% a +18%</strong></p>
+        </div>
+        <div class="kpi">
+          <h4>Receita por episódio</h4>
+          <small>sem empurrar procedimentos</small>
+          <p><strong>+8% a +20%</strong></p>
+        </div>
+        <div class="kpi">
+          <h4>EBITDA / margem</h4>
+          <small>mix + perdas menores</small>
+          <p><strong>+1 a +3 p.p.</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JUSTIFICATIVA / ROI -->
+  <section id="justificativa" class="section">
+    <div class="container">
+      <h2>Justificativa de investimento</h2>
+      <p class="lead">Payback rápido quando aplicamos os playbooks de perdas previsíveis, linha de cuidado e anti‑contenda.</p>
+
+      <div class="two">
+        <div class="panel">
+          <h3>Resumo executivo</h3>
+          <ul>
+            <li><strong>Curso livre com certificação</strong> — sem burocracia, com foco em aplicação e KPIs.</li>
+            <li><strong>Payback</strong> comum: 1 projeto (R$ 15k–40k) ou 1–2 meses de retainer.</li>
+            <li><strong>Multiplicador institucional</strong>: ao treinar times, o ganho se replica por unidade/linha de cuidado.</li>
+            <li><strong>Risco jurídico ↓</strong> com Direito Anti‑Contenda (reduz probabilidade e custo de litígios).</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Exemplos práticos</h3>
+          <ul>
+            <li>Clínica média reduz glosas em <strong>25%</strong> → melhora de caixa e previsibilidade.</li>
+            <li>Hospital organiza linha de cuidado ortopédica → <strong>−15% tempo de ciclo</strong>, <strong>+10% throughput</strong>.</li>
+            <li>Grupo cria serviço de reabilitação e tele‑seguimento → <strong>nova receita</strong> recorrente.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="roi">
+        <div class="calc">
+          <h3>Calculadora rápida de ROI (ilustrativa)</h3>
+          <label>Perdas mensais atuais (R$)</label>
+          <input type="number" id="perdas" placeholder="Ex.: 60.000">
+          <label>Redução estimada de perdas (%)</label>
+          <input type="number" id="reducao" placeholder="Ex.: 15">
+          <label>Investimento no curso (R$)</label>
+          <input type="number" id="invest" placeholder="Ex.: 4.997">
+          <div class="result" id="resultado" style="display:none"></div>
+          <p class="muted">*Cálculo simples: ganho mensal = perdas × redução; payback = investimento / ganho mensal.</p>
+        </div>
+        <div class="calc">
+          <h3>Como as instituições justificam</h3>
+          <p><span class="check">✔</span><strong>Treinamento focal</strong> do corpo clínico/administrativo nas linhas de cuidado mais críticas.</p>
+          <p><span class="check">✔</span><strong>Projetos-piloto com metas</strong> (glosas, tempo de ciclo, NPS, throughput).</p>
+          <p><span class="check">✔</span><strong>Relatórios mensais</strong> com KPIs e ações corretivas.</p>
+          <p><span class="check">✔</span><strong>Comitê Anti‑Contenda</strong> (comunicação + consentimento + rastreabilidade).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTEÚDO ESSENCIAL -->
+  <section id="programa" class="section">
+    <div class="container">
+      <h2>Conteúdo essencial que viabiliza os ganhos</h2>
+      <p class="lead">Do raciocínio à execução: frameworks, playbooks e projetos.</p>
+      <div class="program">
+        <details>
+          <summary><span class="title">Economia das Doenças & Administração das Doenças</span><span class="plus">+</span></summary>
+          <ul>
+            <li>Mapa de custos por fase (pré‑clínico, agudo, crônico, reabilitação) <span class="tag">Para Gestão</span></li>
+            <li>Linhas de cuidado e compra inteligente <span class="tag exec">Para Executivos</span></li>
+            <li>Experiência do paciente e comunicação eficaz <span class="tag alt">Para Clínicos</span></li>
+          </ul>
+        </details>
+        <details>
+          <summary><span class="title">Economia Anti‑Assimétrica Aplicada</span><span class="plus">+</span></summary>
+          <ul>
+            <li>Mapa de assimetrias e priorização de alto impacto <span class="tag">Para Estratégia</span></li>
+            <li>Painel de KPIs clínico‑econômicos <span class="tag exec">Para Executivos</span></li>
+            <li>Playbook de decisão: reduzir perdas, escalar acertos <span class="tag alt">Para Gestão</span></li>
+          </ul>
+        </details>
+        <details>
+          <summary><span class="title">Neuroeconomia da Prosperidade</span><span class="plus">+</span></summary>
+          <ul>
+            <li>Vetores neuroeconômicos e escolhas intertemporais <span class="tag">Para Formação</span></li>
+            <li>Arquitetura de incentivos e accountability <span class="tag exec">Para Executivos</span></li>
+          </ul>
+        </details>
+        <details>
+          <summary><span class="title">Neurodireito & Direito Anti‑Contenda</span><span class="plus">+</span></summary>
+          <ul>
+            <li>Consentimento informado e linguagem clara <span class="tag">Para Clínicos</span></li>
+            <li>Governança, rastreabilidade e métricas de litigiosidade <span class="tag exec">Para Executivos</span></li>
+          </ul>
+        </details>
+        <details>
+          <summary><span class="title">Estado Online (Público & Privado)</span><span class="plus">+</span></summary>
+          <ul>
+            <li>Parcerias e contratos por desfecho <span class="tag exec">Para Executivos</span></li>
+            <li>Interoperabilidade e identidade do paciente <span class="tag">Para Estratégia</span></li>
+          </ul>
+        </details>
+        <details>
+          <summary><span class="title">Pesquisa & Desenvolvimento de Produtos e Serviços</span><span class="plus">+</span></summary>
+          <ul>
+            <li>Triage de oportunidades (clínicas, operacionais, digitais) <span class="tag">Para Inovadores</span></li>
+            <li>Prova de conceito, piloto e business case <span class="tag exec">Para Executivos</span></li>
+            <li>Compliance, LGPD e parcerias com indústria/academia <span class="tag alt">Para Gestão</span></li>
+          </ul>
+        </details>
+      </div>
+      <div class="box" style="margin-top:16px">
+        <strong>Certificação:</strong> curso livre com certificado. Opção de trilha “Consultor Certificado” com estudo de caso e defesa de KPIs.
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" id="contato">
+    <div class="container" style="text-align:center">
+      <h2>Pronto para justificar o investimento com números?</h2>
+      <p class="lead">Garanta sua vaga ou leve o treinamento para seu time. Payback focado em perdas previsíveis, linhas de cuidado e anti‑contenda.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#">Falar com especialista</a>
+        <a class="btn btn-secondary" href="#programa">Revisar conteúdo</a>
+      </div>
+      <p class="muted" style="margin-top:10px">Garantia incondicional de 7 dias • Curso livre com certificação</p>
+    </div>
+  </section>
+
+  <!-- STICKY CTA -->
+  <div class="sticky">
+    <div class="container">
+      <span class="mini">⚡ Vagas limitadas • Ideal para times clínicos e executivos</span>
+      <a class="btn btn-primary" href="#contato">Solicitar proposta</a>
+      <a class="btn btn-secondary" href="#programa">Ver conteúdo</a>
+    </div>
+  </div>
+
+  <footer>© 2025 — Economia da Vida 5.0 | Curso livre com certificação</footer>
+
+<script>
+  // Calculadora simples de ROI
+  const perdas = document.getElementById('perdas');
+  const reducao = document.getElementById('reducao');
+  const invest = document.getElementById('invest');
+  const resultado = document.getElementById('resultado');
+
+  function calc(){
+    const p = parseFloat(perdas?.value || '0');
+    const r = parseFloat(reducao?.value || '0')/100;
+    const i = parseFloat(invest?.value || '0');
+    if(p>0 && r>0){
+      const ganho = p * r;
+      const payback = i>0 ? (i/ganho) : 0;
+      if(resultado){ 
+        resultado.style.display = 'block';
+        resultado.innerHTML = `Ganho mensal estimado: <strong>R$ ${ganho.toLocaleString('pt-BR',{minimumFractionDigits:2})}</strong><br>
+        Payback aproximado: <strong>${payback>0 ? payback.toFixed(1) : '0'} meses</strong>`;
+      }
+    }else{
+      if(resultado) resultado.style.display = 'none';
+    }
+  }
+  [perdas,reducao,invest].forEach(el => el && el.addEventListener('input', calc));
+</script>
+
+</body>
+</html>

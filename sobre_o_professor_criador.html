@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre o Professor — Economia da Vida 5.0</title>
+<meta name="description" content="Página do professor‑criador do curso Economia da Vida 5.0: formação, pesquisa, teorias autorais e como tudo se conecta ao programa.">
+<style>
+  :root{
+    --bg:#0a0d14; --panel:#111826; --panel2:#0e2433; --panel3:#0e1522;
+    --text:#eaf2ff; --muted:#cbd5e1; --cyan:#7dd3fc; --pink:#ff4d6d; --green:#22c55e; --lilac:#a78bfa; --gold:#facc15;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;background:var(--bg);color:var(--text)}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:1120px;margin:0 auto;padding:0 20px}
+  /* HERO */
+  .hero{
+    position:relative;text-align:center;padding:80px 0 56px;
+    background:
+      radial-gradient(1100px 520px at 50% -10%, rgba(125,211,252,.18), transparent 60%),
+      radial-gradient(900px 500px at 90% 10%, rgba(255,77,109,.18), transparent 60%),
+      linear-gradient(90deg,#111826,#1f2937);
+  }
+  .logo{font-weight:800;color:var(--cyan);text-transform:uppercase;letter-spacing:.5px;font-size:14px}
+  .hero h1{font-size:2.4rem;margin:12px auto 10px;max-width:980px}
+  .hero p.sub{font-size:1.12rem;color:#a7b4c7;max-width:980px;margin:0 auto 16px;line-height:1.55}
+  .badges{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:18px 0 26px}
+  .badge{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);color:#dbeafe;padding:8px 12px;border-radius:999px;font-weight:700;font-size:.9rem}
+  .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+  .btn{display:inline-block;padding:14px 22px;border-radius:10px;font-weight:800;box-shadow:0 12px 30px rgba(255,77,109,.25);transition:transform .15s ease}
+  .btn-primary{background:linear-gradient(90deg,var(--pink),#ef476f);color:#fff}
+  .btn-secondary{background:linear-gradient(90deg,var(--cyan),#60a5fa);color:#0b0f14}
+  .btn:hover{transform:translateY(-2px)}
+  .trust{color:#9fb3c8;font-size:.95rem;margin-top:14px}
+
+  .section{padding:48px 0}
+  .section h2{color:var(--cyan);font-size:1.9rem;margin:0 0 12px;text-align:center}
+  .lead{color:#b7c4d6;text-align:center;margin:0 auto 22px;max-width:980px}
+
+  /* ABOUT CARD */
+  .about{display:grid;grid-template-columns:260px 1fr;gap:18px;align-items:flex-start}
+  .avatar{background:var(--panel2);border:1px solid rgba(255,255,255,.08);border-radius:16px;min-height:260px;display:flex;align-items:center;justify-content:center;color:#9fb3c8}
+  .bio{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:18px}
+  .bio h3{margin:0 0 8px}
+  .bio p{margin:0 0 10px;color:var(--muted)}
+  .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+  .tag{display:inline-block;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);padding:6px 10px;border-radius:999px;font-size:.85rem;color:#dbeafe}
+
+  /* GRID */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+  .card{background:var(--panel2);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px;box-shadow:0 16px 36px rgba(255,77,109,.12)}
+  .card h3{margin:0 0 6px}
+  .bullets{list-style:none;margin:12px 0 0;padding:0;color:#d1d5db}
+  .bullets li{margin:8px 0}
+  .pill{display:inline-block;background:var(--pink);color:#fff;font-weight:800;padding:4px 10px;border-radius:999px;font-size:.8rem;margin-bottom:8px}
+
+  /* MAPPING */
+  .map{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+  .map .panel{background:#0e1522;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:16px}
+  .panel h4{margin:0 0 6px;color:#eaf2ff}
+  .panel p{margin:0;color:#cbd5e1}
+  .chip{display:inline-block;background:rgba(125,211,252,.15);color:#9fe0ff;border:1px solid rgba(125,211,252,.25);padding:4px 8px;border-radius:999px;font-size:.78rem;margin-right:6px}
+
+  /* TIMELINE */
+  .timeline{position:relative;margin:10px 0 0;padding-left:20px}
+  .timeline::before{content:'';position:absolute;left:9px;top:0;bottom:0;width:2px;background:rgba(125,211,252,.3)}
+  .time{position:relative;margin:10px 0 0;padding-left:16px}
+  .time::before{content:'';position:absolute;left:-2px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--cyan)}
+
+  /* FOOTER CTA */
+  .sticky{position:sticky;bottom:0;background:rgba(10,13,20,.9);backdrop-filter:blur(6px);border-top:1px solid rgba(255,255,255,.08);padding:12px 0;z-index:30}
+  .sticky .container{display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap}
+  .sticky .mini{font-weight:700;color:#9fb3c8}
+  footer{text-align:center;color:#64748b;padding:26px 0 60px}
+  @media (max-width:820px){ .about{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="logo">Economia da Vida 5.0</div>
+      <h1>Sobre o Professor — Criador do Programa</h1>
+      <p class="sub">Integração rara de medicina, engenharia, direito e economia aplicada à saúde — a base intelectual por trás da <strong>Economia da Vida 5.0</strong>.</p>
+      <div class="badges">
+        <span class="badge">Medicina & Engenharia</span>
+        <span class="badge">Direito & Neurodireito</span>
+        <span class="badge">Economia & Inovação</span>
+        <span class="badge">P&D: biotech, IA, robótica</span>
+      </div>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#conexao">Como isso se conecta ao curso</a>
+        <a class="btn btn-secondary" href="#contato">Fale com a equipe</a>
+      </div>
+      <div class="trust">E‑mail para dúvidas: <a href="mailto:ECONOMIADAVIDA@PROTON.ME">ECONOMIADAVIDA@PROTON.ME</a></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section">
+    <div class="container about">
+      <div class="avatar">
+        <!-- Você pode trocar por uma foto do professor (300×300) -->
+        <div>Foto do Professor</div>
+      </div>
+      <div class="bio">
+        <h3>Professor‑Criador <span style="color:var(--cyan)">[Seu Nome]</span></h3>
+        <p>Médico ortopedista (com pós em reumatologia), engenheiro (mecânica, ambiental e computação), bacharel em direito. Mestre e Doutor em Engenharia Mecânica (concentração em Engenharia de Materiais e Processos de Fabricação), com pesquisa aplicada em <strong>biotecnologia</strong>, <strong>drug delivery</strong>, <strong>IA</strong>, <strong>robótica</strong>, <strong>micro e nanotecnologia</strong>, <strong>engenharia de tecidos</strong> e <strong>biomateriais</strong>.</p>
+        <p>Atualmente, <strong>doutorando em Economia</strong> (defesa prevista para o <strong>1º semestre de 2026</strong>) e <strong>doutorando em Agronomia</strong>; em <strong>pós‑doutorado</strong> em Produção Animal e Engenharia Elétrica; com proposta de doutorado/pós em <strong>Engenharia de Alimentos</strong> ou <strong>Engenharia Química</strong> (em avaliação).</p>
+        <div class="tags">
+          <span class="tag">Economia da Saúde</span>
+          <span class="tag">Economia Política do Bem‑Estar</span>
+          <span class="tag">Inovacionismo Multidimensional</span>
+          <span class="tag">Estado Online</span>
+          <span class="tag">Vetores Neuroeconômicos</span>
+          <span class="tag">Renda Neuroeconômica</span>
+          <span class="tag">Economia Anti‑Assimétrica</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HIGHLIGHTS -->
+  <section class="section">
+    <div class="container grid">
+      <div class="card">
+        <span class="pill">Formação Médica</span>
+        <h3>Medicina, Ortopedia & Reumatologia</h3>
+        <ul class="bullets">
+          <li>Tomada de decisão clínica, linha de cuidado e desfecho.</li>
+          <li>Visão prática de custos, risco e comunicação com pacientes.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="pill">Engenharia</span>
+        <h3>Mecânica, Ambiental & Computação</h3>
+        <ul class="bullets">
+          <li>Modelagem, automação, confiabilidade e eficiência.</li>
+          <li>Integração de dados e IA à operação assistencial.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="pill">Direito</span>
+        <h3>Bacharelado & Neurodireito</h3>
+        <ul class="bullets">
+          <li>Direito Anti‑Contenda: prevenção de litígios por linguagem clara.</li>
+          <li>Compliance, LGPD e governança clínica.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="pill">Economia</span>
+        <h3>Doutorando — Saúde & Valor</h3>
+        <ul class="bullets">
+          <li>Economia das Doenças e Economia Anti‑Assimétrica.</li>
+          <li>Política do bem‑estar e incentivos intertemporais.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PESQUISA -->
+  <section class="section">
+    <div class="container">
+      <h2>Linhas de Pesquisa & Desenvolvimento</h2>
+      <p class="lead">Convergência entre biotecnologia, engenharia e economia para criar modelos de alto valor em saúde.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Biotecnologia & Eng. de Tecidos</h3>
+          <ul class="bullets">
+            <li>Biomateriais, scaffolds, órgãos bioartificiais.</li>
+            <li>Interfaces com reabilitação e ortopedia.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Drug Delivery, Micro/Nano & Robótica</h3>
+          <ul class="bullets">
+            <li>Microdispositivos inteligentes e automação de procedimentos.</li>
+            <li>Sistemas guiados por IA para precisão e segurança.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Economia & Políticas de Saúde</h3>
+          <ul class="bullets">
+            <li>Economia da Saúde e do Bem‑Estar; contratos por desfecho.</li>
+            <li>Estado Online: integração público‑privada orientada a valor.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEORIAS AUTORAIS -->
+  <section class="section">
+    <div class="container">
+      <h2>Teorias Autorais</h2>
+      <p class="lead">Novas lentes para decidir melhor, reduzir perdas e ampliar valor.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Economia Anti‑Assimétrica</h3>
+          <ul class="bullets">
+            <li>Mapeamento de assimetrias para capturar valor e evitar perdas previsíveis.</li>
+            <li>Aplicação direta em custos, filas, glosas e contrato por desfecho.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Neuroeconomia da Prosperidade</h3>
+          <ul class="bullets">
+            <li>Vetores neuroeconômicos e renda neuroeconômica.</li>
+            <li>Boas escolhas intertemporais (vida longa, saúde e capital).</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Inovacionismo Multidimensional</h3>
+          <ul class="bullets">
+            <li>Integração de conhecimento técnico para criar produtos/serviços inéditos.</li>
+            <li>Pipeline: ideia → P&D → piloto → escala.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Neurodireito & Direito Anti‑Contenda</h3>
+          <ul class="bullets">
+            <li>Prevenção de litígios por desenho de processos e linguagem clara.</li>
+            <li>Rastreabilidade e consentimento informado como ativos de valor.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Estado Online</h3>
+          <ul class="bullets">
+            <li>Arranjos público‑privados digitais orientados a desfecho.</li>
+            <li>Governança e identidade do paciente.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONEXÃO COM O CURSO -->
+  <section id="conexao" class="section">
+    <div class="container">
+      <h2>Como isso se conecta ao curso</h2>
+      <p class="lead">Sua formação múltipla → módulos integrados → resultados práticos para médicos, executivos e instituições.</p>
+      <div class="map">
+        <div class="panel">
+          <h4>Medicina & Ortopedia/Reumato</h4>
+          <p><span class="chip">Economia das Doenças</span><span class="chip">Administração das Doenças</span><span class="chip">Linha de Cuidado</span></p>
+        </div>
+        <div class="panel">
+          <h4>Engenharia Mecânica/Computação</h4>
+          <p><span class="chip">Modelagem de processos</span><span class="chip">Robótica & IA</span><span class="chip">Hospital/Clínica 5.0</span></p>
+        </div>
+        <div class="panel">
+          <h4>Direito & Neurodireito</h4>
+          <p><span class="chip">Direito Anti‑Contenda</span><span class="chip">LGPD</span><span class="chip">Governança</span></p>
+        </div>
+        <div class="panel">
+          <h4>Economia (Saúde & Bem‑Estar)</h4>
+          <p><span class="chip">Economia Anti‑Assimétrica</span><span class="chip">Contratos por desfecho</span><span class="chip">Estado Online</span></p>
+        </div>
+        <div class="panel">
+          <h4>Biotec, Micro/Nano & Eng. de Tecidos</h4>
+          <p><span class="chip">P&D de Produtos e Serviços</span><span class="chip">Dispositivos & Biomateriais</span><span class="chip">Drug Delivery</span></p>
+        </div>
+      </div>
+      <div style="margin-top:16px;background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px">
+        <strong>Tradução para o aluno:</strong> frameworks executáveis, playbooks de decisão e projetos orientados a KPI (glosas, tempo de ciclo, throughput, NPS, margem).
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="section">
+    <div class="container">
+      <h2>Linha do Tempo Acadêmica (resumo)</h2>
+      <div class="card">
+        <div class="timeline">
+          <div class="time"><strong>Medicina</strong> — Ortopedia (pós: Reumatologia)</div>
+          <div class="time"><strong>Engenharias</strong> — Mecânica, Ambiental e Computação</div>
+          <div class="time"><strong>Direito</strong> — Bacharelado</div>
+          <div class="time"><strong>Mestrado & Doutorado</strong> — Eng. Mecânica (Materiais & Processos de Fabricação)</div>
+          <div class="time"><strong>Pós‑doc</strong> — Produção Animal & Eng. Elétrica</div>
+          <div class="time"><strong>Doutorando</strong> — Economia (defesa prevista 1º sem/2026) & Agronomia</div>
+          <div class="time"><strong>Proposta</strong> — Doutorado/Pós em Eng. de Alimentos ou Eng. Química</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" class="section">
+    <div class="container">
+      <h2>Entre em contato</h2>
+      <p class="lead">Convites, parcerias, imprensa e dúvidas sobre o programa.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>E‑mail</h3>
+          <p><a href="mailto:ECONOMIADAVIDA@PROTON.ME">ECONOMIADAVIDA@PROTON.ME</a></p>
+        </div>
+        <div class="card">
+          <h3>WhatsApp</h3>
+          <p><a href="https://wa.me/5599999999999" target="_blank" rel="noopener">Enviar mensagem</a></p>
+          <p class="muted">Substitua pelo número oficial.</p>
+        </div>
+        <div class="card">
+          <h3>Calendário</h3>
+          <p>Marque uma conversa executiva para entender o fit com sua instituição.</p>
+        </div>
+      </div>
+      <div class="ctas" style="margin-top:16px;justify-content:center">
+        <a class="btn btn-primary" href="#">Garantir minha vaga</a>
+        <a class="btn btn-secondary" href="#">Solicitar proposta in‑company</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STICKY CTA -->
+  <div class="sticky">
+    <div class="container">
+      <span class="mini">⚡ Preparado para unir ciência, gestão e valor?</span>
+      <a class="btn btn-primary" href="#">Ver turmas</a>
+      <a class="btn btn-secondary" href="#">Falar com a equipe</a>
+    </div>
+  </div>
+
+  <footer>© 2025 — Economia da Vida 5.0 | Curso livre com certificação</footer>
+</body>
+</html>

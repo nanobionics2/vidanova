@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Economia & Administração da Vida 5.0 — Curso para Pessoas Reais</title>
+<meta name="description" content="Curso livre com certificado para pessoas comuns, estudantes, universitários e empreendedores. Decisões intertemporais, riqueza, saúde, bem-estar e novos negócios.">
+<style>
+  :root{
+    --bg:#0a0d14; --panel:#111826; --panel2:#0e2433; --panel3:#0e1522;
+    --text:#eaf2ff; --muted:#cbd5e1; --cyan:#7dd3fc; --pink:#ff4d6d; --green:#22c55e; --lilac:#a78bfa; --gold:#facc15;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;background:var(--bg);color:var(--text)}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:1120px;margin:0 auto;padding:0 20px}
+
+  /* HERO */
+  .hero{
+    position:relative;text-align:center;padding:80px 0 56px;
+    background:
+      radial-gradient(1100px 520px at 50% -10%, rgba(125,211,252,.18), transparent 60%),
+      radial-gradient(900px 500px at 90% 10%, rgba(255,77,109,.18), transparent 60%),
+      linear-gradient(90deg,#111826,#1f2937);
+  }
+  .logo{font-weight:800;color:var(--cyan);text-transform:uppercase;letter-spacing:.5px;font-size:14px}
+  .hero h1{font-size:2.5rem;margin:12px auto 10px;max-width:980px}
+  .hero p.sub{font-size:1.12rem;color:#a7b4c7;max-width:980px;margin:0 auto 16px;line-height:1.6}
+  .badges{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:18px 0 26px}
+  .badge{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08);color:#dbeafe;padding:8px 12px;border-radius:999px;font-weight:700;font-size:.9rem}
+  .ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:10px}
+  .btn{display:inline-block;padding:14px 22px;border-radius:10px;font-weight:800;box-shadow:0 12px 30px rgba(255,77,109,.25);transition:transform .15s ease}
+  .btn-primary{background:linear-gradient(90deg,var(--pink),#ef476f);color:#fff}
+  .btn-secondary{background:linear-gradient(90deg,var(--cyan),#60a5fa);color:#0b0f14}
+  .btn:hover{transform:translateY(-2px)}
+  .trust{color:#9fb3c8;font-size:.95rem;margin-top:14px}
+
+  /* SECTION */
+  .section{padding:48px 0}
+  .section h2{color:var(--cyan);font-size:1.9rem;margin:0 0 12px;text-align:center}
+  .lead{color:#b7c4d6;text-align:center;margin:0 auto 22px;max-width:980px}
+
+  /* GRID */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  .box{background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:16px;box-shadow:0 16px 36px rgba(255,77,109,.12)}
+  .box h3{margin:0 0 6px;color:#eaf2ff;font-size:1.05rem}
+  .box p{margin:0;color:var(--muted);line-height:1.6}
+  .check{color:var(--green);margin-right:6px}
+
+  /* PROGRAM */
+  .program{margin-top:6px}
+  .program details{
+    background:var(--panel);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:16px;box-shadow:0 16px 36px rgba(255,77,109,.12)
+  }
+  .program details+details{margin-top:12px}
+  .program summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between}
+  .program summary::-webkit-details-marker{display:none}
+  .program .title{color:var(--cyan);font-weight:800}
+  .program .plus{color:#9fb3c8;font-weight:900;font-size:1.2rem;transition:transform .2s}
+  details[open] .plus{transform:rotate(45deg)}
+  .program ul{margin:12px 0 0;padding-left:18px;color:var(--muted)}
+  .tag{display:inline-block;margin-left:8px;background:var(--cyan);color:#0a0d14;font-weight:800;border-radius:8px;padding:3px 8px;font-size:.78rem}
+  .tag.alt{background:var(--pink);color:#fff}
+  .tag.exec{background:var(--lilac);color:#0a0d14}
+
+  /* HOW IT WORKS */
+  .two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+  .panel{background:var(--panel2);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:18px}
+  .panel h3{margin:0 0 6px}
+  .panel ul{margin:8px 0 0;color:#d1d5db}
+
+  /* PRICING */
+  .pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+  .price-card{background:var(--panel2);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:22px}
+  .price-card h3{margin:0 0 4px}
+  .ribbon{display:inline-block;background:var(--pink);color:#fff;font-weight:800;padding:4px 10px;border-radius:999px;font-size:.8rem}
+  .bullets{list-style:none;margin:12px 0 0;padding:0}
+  .bullets li{margin:8px 0;color:#d1d5db}
+
+  /* TESTIMONIALS */
+  .testi{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  .quote{background:#0e1522;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:16px;color:#d1d5db;font-style:italic}
+
+  /* FAQ */
+  details.faq{background:#0e1522;border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:12px 14px}
+  details.faq+details.faq{margin-top:10px}
+  details.faq summary{cursor:pointer;font-weight:700;color:#eaf2ff}
+  details.faq p{color:#cbd5e1}
+
+  /* STICKY CTA */
+  .sticky{position:sticky;bottom:0;background:rgba(10,13,20,.9);backdrop-filter:blur(6px);border-top:1px solid rgba(255,255,255,.08);padding:12px 0;z-index:30}
+  .sticky .container{display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap}
+  .sticky .mini{font-weight:700;color:#9fb3c8}
+  footer{text-align:center;color:#64748b;padding:26px 0 60px}
+  @media (max-width:560px){.hero h1{font-size:2rem}}
+</style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="logo">Economia & Administração da Vida 5.0</div>
+      <h1>Decida melhor hoje para colher saúde, riqueza e liberdade amanhã</h1>
+      <p class="sub">
+        Um curso <strong>livre com certificado</strong> que traduz ciência, economia e gestão para a sua vida real.
+        Aprenda a fazer <strong>boas escolhas intertemporais</strong>, reduzir perdas previsíveis, aumentar sua renda e
+        construir uma vida longa, próspera e com propósito.
+      </p>
+      <div class="badges">
+        <span class="badge">Sem “enrolação” acadêmica</span>
+        <span class="badge">Frameworks práticos</span>
+        <span class="badge">Planilhas e checklists</span>
+        <span class="badge">Aulas gravadas + ao vivo</span>
+      </div>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#planos">Quero garantir minha vaga</a>
+        <a class="btn btn-secondary" href="#programa">Ver o conteúdo</a>
+      </div>
+      <div class="trust">Para pessoas comuns, estudantes, universitários e empreendedores que querem <strong>acumular riqueza</strong> e <strong>saúde</strong> com inteligência.</div>
+    </div>
+  </section>
+
+  <!-- BENEFÍCIOS -->
+  <section class="section">
+    <div class="container">
+      <h2>Resultados que você sente no dia a dia</h2>
+      <p class="lead">Decisões melhores → mais dinheiro no bolso, mais saúde, menos desperdício de tempo.</p>
+      <div class="grid">
+        <div class="box"><h3><span class="check">✔</span>Dinheiro que deixa de escapar</h3><p>Previna gastos bobos, juros, glosas pessoais e compras por impulso. Transforme economia em investimento.</p></div>
+        <div class="box"><h3><span class="check">✔</span>Saúde como ativo</h3><p>Planeje exames, prevenção e hábitos com custo/benefício. Menos dias parado, mais energia e foco.</p></div>
+        <div class="box"><h3><span class="check">✔</span>Tempo produtivo</h3><p>Rotinas simples para estudar, trabalhar e empreender sem se perder. Pareto da vida e anti‑procrastinação.</p></div>
+        <div class="box"><h3><span class="check">✔</span>Proteção jurídica do cotidiano</h3><p>Comunicação clara, registros e contratos básicos para evitar dores de cabeça e prejuízos.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARATIVO -->
+  <section class="section">
+    <div class="container">
+      <h2>Por que este curso é diferente?</h2>
+      <p class="lead">Nada de teorias soltas. Você aprende a pensar e agir como quem cria resultado.</p>
+      <div class="grid">
+        <div class="box"><h3>Economia Anti‑Assimétrica</h3><p>Detecte assimetrias na sua vida financeira e capture oportunidades antes dos outros.</p></div>
+        <div class="box"><h3>Neuroeconomia da Prosperidade</h3><p>Entenda seus impulsos e desenhe incentivos para manter constância e disciplina.</p></div>
+        <div class="box"><h3>Administração da Vida 5.0</h3><p>Gestão de projetos pessoais: renda, estudo, saúde, família e carreira alinhados.</p></div>
+        <div class="box"><h3>Economia das Doenças (para leigos)</h3><p>Como evitar gastos médicos desnecessários e decidir melhor sob incerteza.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMA -->
+  <section id="programa" class="section">
+    <div class="container">
+      <h2>Conteúdo Programático</h2>
+      <p class="lead">Abra cada módulo e veja como tudo se aplica à sua vida, estudo e negócios.</p>
+      <div class="program">
+        <details open>
+          <summary><span class="title">Fundamentos — Pensar como 5.0</span><span class="plus">+</span></summary>
+          <ul>
+            <li>Boas escolhas intertemporais: como decidir hoje para vencer amanhã <span class="tag">Para Formação</span></li>
+            <li>Mapa de assimetrias pessoais (dinheiro, tempo, saúde) <span class="tag alt">Para Empreendedores</span></li>
+            <li>Rotina de foco: 45/90 dias para mudança real <span class="tag exec">Para Inovadores</span></li>
+          </ul>
+        </details>
+        <details>
+          <summary><span class="title">Neuroeconomia da Prosperidade</span><span class="plus">+</span></summary>
+          <ul>
+            <li>Vetores neuroeconômicos: hábitos, impulso, risco e recompensa <span class="tag">Para Formação Neuroeconômica</span></li>
+            <li>Protocolos anti‑procrastinação e constância <span class="tag alt">Para Estudantes</span></li>
+            <li>Renda neuroeconômica: como montar fluxos previsíveis <span class="tag exec">Para Empreendedores</span></li>
+          </ul>
+        </details>
+        <details>
+          <summary><span class="title">Economia Anti‑Assimétrica para a vida</span><span class="plus">+</span></summary>
+          <ul>
+            <li>Gastos invisíveis, juros e armadilhas de consumo <span class="tag">Para Todos</span></li>
+            <li>Compra inteligente, negociação e “custos de oportunidade” <span class="tag alt">Para Riqueza</span></li>
+            <li>Plano de investimento simples e honesto <span class="tag exec">Para Acúmulo</span></li>
+          </ul>
+        </details>
+        <details>
+          <summary><span class="title">Administração da Vida 5.0</span><span class="plus">+</span></summary>
+          <ul>
+            <li>Projeto de vida: estudo, carreira, renda e família no mesmo tabuleiro <span class="tag">Para Planejamento</span></li>
+            <li>Organização 5.0: agenda, energia e foco (sem modinha) <span class="tag alt">Para Produtividade</span></li>
+            <li>Planilha‑mãe: metas, tarefas e acompanhamento <span class="tag exec">Para Ação</span></li>
+          </ul>
+        </details>
+        <details>
+          <summary><span class="title">Economia das Doenças (para leigos)</span><span class="plus">+</span></summary>
+          <ul>
+            <li>O custo total de ficar doente e como reduzir o impacto <span class="tag">Para Saúde</span></li>
+            <li>Prevenção que funciona: exames, check‑ups e hábitos com ROI <span class="tag alt">Para Longevidade</span></li>
+            <li>Decisão médica sob incerteza (linguagem clara e segunda opinião) <span class="tag exec">Para Segurança</span></li>
+          </ul>
+        </details>
+        <details>
+          <summary><span class="title">Direito Anti‑Contenda do dia a dia</span><span class="plus">+</span></summary>
+          <ul>
+            <li>Comunicação clara e registros que evitam prejuízos <span class="tag">Para Proteção</span></li>
+            <li>Contratos básicos (aluguel, prestação de serviço, compras) <span class="tag alt">Para Paz</span></li>
+            <li>LGPD para pessoas: seus dados, sua reputação <span class="tag exec">Para Segurança</span></li>
+          </ul>
+        </details>
+        <details>
+          <summary><span class="title">Criação de Renda & Inovação</span><span class="plus">+</span></summary>
+          <ul>
+            <li>Side‑hustles éticos, simples e escaláveis <span class="tag">Para Empreendedores</span></li>
+            <li>No‑code e IA no dia a dia (automatize o que cansa) <span class="tag alt">Para Inovadores</span></li>
+            <li>Pitch de ideias e P&D pessoal (produto/serviço) <span class="tag exec">Para Criadores</span></li>
+          </ul>
+        </details>
+      </div>
+      <div class="box" style="margin-top:16px">
+        <strong>Bônus:</strong> Planilha‑mãe 5.0 • Calculadora de decisões intertemporais • Checklist de prevenção com ROI • Modelos de comunicação clara e contratos pessoais.
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section class="section">
+    <div class="container">
+      <h2>Como funciona</h2>
+      <p class="lead">Feito para caber na sua rotina — com resultado real.</p>
+      <div class="two">
+        <div class="panel">
+          <h3>Formato</h3>
+          <ul>
+            <li>Aulas gravadas (10–25 min) liberadas semanalmente.</li>
+            <li>Encontros ao vivo quinzenais (2h) para dúvidas e plano 45/90 dias.</li>
+            <li>Comunidade com desafios e acompanhamento leve.</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Certificado</h3>
+          <ul>
+            <li>Curso livre com certificado de conclusão.</li>
+            <li>Projeto pessoal: plano de vida 5.0 + metas de saúde e renda.</li>
+            <li>Entrega opcional para feedback do professor.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS (placeholders) -->
+  <section class="section">
+    <div class="container">
+      <h2>Histórias de transformação</h2>
+      <p class="lead">Relatos reais — o que muda quando você decide com método.</p>
+      <div class="testi">
+        <div class="quote">“Parei de gastar em bobagens, montei minha reserva e criei uma renda extra simples. Dormi em paz pela primeira vez.” — <strong>Ana, 27</strong></div>
+        <div class="quote">“Organizei exames e hábitos. Menos ansiedade, menos remédios, mais energia para empreender.” — <strong>João, 41</strong></div>
+        <div class="quote">“Usei os checklists para um acordo de prestação de serviço. Evitei um problema e ainda fechei melhor.” — <strong>Clara, 33</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANOS -->
+  <section id="planos" class="section">
+    <div class="container">
+      <h2>Planos de acesso</h2>
+      <p class="lead">Escolha o ponto de partida. Você pode evoluir depois.</p>
+      <div class="pricing">
+        <div class="price-card">
+          <span class="ribbon">Essencial</span>
+          <h3>Aulas + Comunidade</h3>
+          <ul class="bullets">
+            <li>Curso completo (gravadas) + comunidade</li>
+            <li>Planilhas e checklists</li>
+            <li>Certificado de conclusão</li>
+          </ul>
+          <div class="ctas" style="justify-content:flex-start;margin-top:12px">
+            <a href="#cta" class="btn btn-primary">Garantir minha vaga</a>
+            <a href="#programa" class="btn btn-secondary">Ver conteúdo</a>
+          </div>
+        </div>
+        <div class="price-card">
+          <span class="ribbon">Plus</span>
+          <h3>Aulas + Ao Vivo</h3>
+          <ul class="bullets">
+            <li>Tudo do Essencial</li>
+            <li>Encontros ao vivo quinzenais (2h)</li>
+            <li>Feedback do plano 45/90 dias</li>
+          </ul>
+          <div class="ctas" style="justify-content:flex-start;margin-top:12px">
+            <a href="#cta" class="btn btn-primary">Quero participar</a>
+            <a href="#programa" class="btn btn-secondary">Ver conteúdo</a>
+          </div>
+        </div>
+        <div class="price-card">
+          <span class="ribbon">Premium</span>
+          <h3>Mentoria Leve</h3>
+          <ul class="bullets">
+            <li>Tudo do Plus</li>
+            <li>2 mentorias em grupo (2h)</li>
+            <li>Revisão final do projeto pessoal</li>
+          </ul>
+          <div class="ctas" style="justify-content:flex-start;margin-top:12px">
+            <a href="#cta" class="btn btn-primary">Entrar no Premium</a>
+            <a href="#programa" class="btn btn-secondary">Ver conteúdo</a>
+          </div>
+        </div>
+      </div>
+      <div class="box" style="margin-top:16px">
+        <strong>Garantia de 7 dias.</strong> Se não fizer sentido para você, devolvemos 100% do investimento dentro do prazo.
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container">
+      <h2>Perguntas frequentes</h2>
+      <div class="grid" style="gap:12px">
+        <details class="faq"><summary>Preciso ter formação em economia ou saúde?</summary><p>Não. O curso é feito para pessoas comuns, com linguagem simples e foco em prática.</p></details>
+        <details class="faq"><summary>Quanto tempo preciso por semana?</summary><p>De 2 a 4 horas. As aulas são curtas e você aplica no mesmo dia.</p></details>
+        <details class="faq"><summary>Recebo certificado?</summary><p>Sim, é um curso livre com certificado de conclusão.</p></details>
+        <details class="faq"><summary>Tem suporte?</summary><p>Sim. Comunidade + encontros ao vivo (nos planos Plus/Premium).</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="section" id="cta">
+    <div class="container" style="text-align:center">
+      <h2>Comece hoje sua Vida 5.0</h2>
+      <p class="lead">Mais saúde, mais riqueza, mais liberdade. Uma decisão agora — ganhos que acumulam no tempo.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#">Garantir minha vaga</a>
+        <a class="btn btn-secondary" href="#programa">Ver o conteúdo</a>
+      </div>
+      <p class="muted" style="margin-top:10px">Dúvidas? <a href="mailto:ECONOMIADAVIDA@PROTON.ME">ECONOMIADAVIDA@PROTON.ME</a></p>
+    </div>
+  </section>
+
+  <!-- STICKY CTA -->
+  <div class="sticky">
+    <div class="container">
+      <span class="mini">⚡ Vagas limitadas • Aulas gravadas + encontros ao vivo</span>
+      <a class="btn btn-primary" href="#cta">Quero garantir minha vaga</a>
+      <a class="btn btn-secondary" href="#programa">Ver conteúdo</a>
+    </div>
+  </div>
+
+  <footer>© 2025 — Economia & Administração da Vida 5.0 | Curso livre com certificação</footer>
+</body>
+</html>

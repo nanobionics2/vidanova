@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal do Aluno — Economia da Vida</title>
+<meta name="description" content="Exemplo de portal de acesso às aulas com autenticação e embed de vídeo via provedor externo de baixo custo.">
+<style>
+  :root{--bg:#0a0d14;--panel:#111826;--text:#eaf2ff;--muted:#cbd5e1;--cyan:#7dd3fc;--pink:#ff4d6d}
+  *{box-sizing:border-box} body{margin:0;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;background:var(--bg);color:var(--text)}
+  .wrap{max-width:980px;margin:0 auto;padding:30px 16px}
+  .box{background:var(--panel);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px}
+  .btn{display:inline-block;padding:10px 16px;border-radius:10px;background:linear-gradient(90deg,var(--cyan),#60a5fa);color:#0b0f14;font-weight:800;text-decoration:none}
+  .muted{color:var(--muted)}
+  iframe{width:100%;height:420px;border:0;border-radius:12px;background:#000}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1 style="color:var(--cyan)">Portal do Aluno</h1>
+  <p class="muted">Exemplo minimalista. Para produção, recomendo usar <b>Moodle</b> (gratuito e robusto) ou um site estático com <b>Firebase Auth</b> (login por e‑mail) + <b>Cloudflare Stream</b>/<b>Bunny Stream</b> para vídeos com link protegido.</p>
+
+  <div class="box">
+    <h2>Acesso às Aulas</h2>
+    <p>Substitua o <b>src</b> abaixo pelo link do seu provedor de vídeo. Em Cloudflare Stream/Bunny Stream, ative <i>signed URLs/token</i> e restrição por domínio.</p>
+    <iframe src="https://embed.example.video/SEU_VIDEO_ID?token=SUA_ASSINATURA" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+    <p class="muted">🔒 Recomendação: gere o token do vídeo no servidor somente para usuários logados. Em Moodle, o próprio login controla o acesso ao embed.</p>
+  </div>
+
+  <div class="box" style="margin-top:14px">
+    <h3>Stack de baixo custo sugerida</h3>
+    <ul>
+      <li><b>Checkout:</b> PIX via PSP com webhook (Efí/Gerencianet, Asaas, Pagar.me, Mercado Pago, Stripe) + cartão opcional.</li>
+      <li><b>Área de alunos:</b> Moodle em VPS básico (DigitalOcean/Hetzner) com Cloudflare em frente.</li>
+      <li><b>Vídeos:</b> Cloudflare Stream ou Bunny Stream com URLs assinadas (controle de hotlink e expiração).</li>
+      <li><b>Automação:</b> Apps Script/Make/Zapier para criar usuários e liberar cursos após pagamento.</li>
+    </ul>
+  </div>
+
+  <p class="muted">Suporte: <a href="mailto:ECONOMIADAVIDA@PROTON.ME">ECONOMIADAVIDA@PROTON.ME</a></p>
+</div>
+</body>
+</html>
